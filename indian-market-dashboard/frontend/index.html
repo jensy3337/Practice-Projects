@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indian Market Analyzer</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>🇮🇳 Indian Market Analyzer</h1>
+    <div class="status">
+      <span id="market-status" class="badge">Market: --</span>
+      <span id="sentiment" class="badge">Sentiment: --</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+    <button class="tab-btn" data-tab="education">Education</button>
+  </nav>
+
+  <main>
+    <section id="dashboard" class="tab-content active">
+      <div class="controls">
+        <input id="search-box" placeholder="Search Indian stock (e.g., INFY or Infosys)" />
+        <select id="sector-filter">
+          <option value="all">All Sectors</option>
+          <option>Banking</option>
+          <option>IT</option>
+          <option>Energy</option>
+          <option>Infrastructure</option>
+          <option>Commodities</option>
+        </select>
+      </div>
+
+      <section>
+        <h2>Live Quotes (Auto-refresh: 20s)</h2>
+        <div id="loader" class="loader"></div>
+        <div id="live-table" class="card-grid"></div>
+      </section>
+
+      <section>
+        <h2>Chart & Prediction</h2>
+        <div class="chart-controls">
+          <select id="symbol-switch"></select>
+          <span class="note">AI-Based Prediction (Not Guaranteed)</span>
+        </div>
+        <div id="chart-container"></div>
+      </section>
+
+      <section class="three-col">
+        <div>
+          <h3>Watchlist</h3>
+          <ul id="watchlist"></ul>
+        </div>
+        <div>
+          <h3>Top Gainers & Losers</h3>
+          <div id="gainers-losers"></div>
+        </div>
+        <div>
+          <h3>Latest Market News</h3>
+          <ul id="news-list"></ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Sector Heatmap (Avg % Change)</h3>
+        <div id="heatmap" class="heatmap"></div>
+      </section>
+    </section>
+
+    <section id="education" class="tab-content">
+      <div class="education-card">
+        <h2>Indian Stock Market Basics</h2>
+        <h3>What is Stock Market (India)?</h3><p>Indian stock market is where shares of publicly listed Indian companies are traded on exchanges like NSE and BSE.</p>
+        <h3>NSE vs BSE</h3><p>NSE (National Stock Exchange) is known for high liquidity and NIFTY 50 index; BSE (Bombay Stock Exchange) is Asia's oldest exchange and tracks SENSEX.</p>
+        <h3>NIFTY & SENSEX</h3><p>NIFTY 50 tracks 50 large NSE firms; SENSEX tracks 30 major BSE companies.</p>
+        <h3>Bull vs Bear Market</h3><p>Bull market means rising prices and optimism; Bear market means falling prices and caution.</p>
+        <h3>Candlestick Patterns</h3><p>Common examples: Doji (indecision), Hammer (possible reversal), Engulfing (trend reversal signal).</p>
+        <h3>Intraday vs Delivery</h3><p>Intraday: buy/sell same day. Delivery: hold stocks beyond market close.</p>
+        <h3>Market Order vs Limit Order</h3><p>Market order executes immediately at best available price. Limit order executes only at your specified price.</p>
+        <h3>Risk Management Basics</h3><p>Use stop-loss, position sizing, diversification, and avoid overleveraging.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

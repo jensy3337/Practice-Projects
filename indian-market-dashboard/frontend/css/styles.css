@@ -1,0 +1,40 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --green: #22c55e;
+  --red: #ef4444;
+}
+body { margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); }
+.topbar { display:flex; justify-content:space-between; align-items:center; padding: 14px 20px; background:#020617; position:sticky; top:0; z-index:10; }
+.badge { background: var(--panel); padding: 6px 10px; border-radius: 8px; margin-left: 8px; }
+.tabs { display:flex; gap:8px; padding: 10px 20px; }
+.tab-btn { background: var(--panel); color: var(--text); border:0; padding:8px 14px; border-radius:8px; cursor:pointer; }
+.tab-btn.active { outline: 1px solid #38bdf8; }
+main { padding: 0 20px 20px; }
+.tab-content { display:none; }
+.tab-content.active { display:block; animation: fade .25s ease-in; }
+@keyframes fade { from {opacity:0;} to {opacity:1;} }
+.controls { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+input, select { background:#0b1220; color:var(--text); border:1px solid #334155; border-radius:8px; padding:10px; }
+.card-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:10px; }
+.card { background: var(--panel); padding:12px; border-radius:12px; cursor:pointer; transition: transform .2s; }
+.card:hover { transform: translateY(-2px); }
+.pos { color: var(--green); }
+.neg { color: var(--red); }
+#chart-container { height: 420px; background: var(--panel); border-radius: 12px; }
+.chart-controls { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.note { color:#facc15; font-size: .9rem; }
+.three-col { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:12px; margin-top: 16px; }
+ul { list-style:none; padding-left:0; }
+li { padding: 6px 0; border-bottom: 1px solid #334155; }
+.heatmap { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:8px; }
+.heat-cell { padding: 14px; border-radius: 10px; text-align:center; font-weight:600; }
+.loader { width:28px; height:28px; border:3px solid #334155; border-top-color:#38bdf8; border-radius:50%; animation:spin .7s linear infinite; display:none; }
+@keyframes spin { to { transform: rotate(360deg);} }
+.education-card { background: var(--panel); padding: 18px; border-radius: 12px; line-height: 1.6; }
+@media (max-width: 768px) {
+  .topbar { flex-direction:column; gap:8px; }
+  #chart-container { height: 300px; }
+}
